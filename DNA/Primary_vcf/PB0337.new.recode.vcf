@@ -1,0 +1,227 @@
+##fileformat=VCFv4.2
+##FILTER=<ID=PASS,Description="All filters passed">
+##FILTER=<ID=FAIL,Description="Fail the site if all alleles fail but for different reasons.">
+##FILTER=<ID=base_qual,Description="alt median base quality">
+##FILTER=<ID=clustered_events,Description="Clustered events observed in the tumor">
+##FILTER=<ID=contamination,Description="contamination">
+##FILTER=<ID=duplicate,Description="evidence for alt allele is overrepresented by apparent duplicates">
+##FILTER=<ID=fragment,Description="abs(ref - alt) median fragment length">
+##FILTER=<ID=germline,Description="Evidence indicates this site is germline, not somatic">
+##FILTER=<ID=haplotype,Description="Variant near filtered variant on same haplotype.">
+##FILTER=<ID=low_allele_frac,Description="Allele fraction is below specified threshold">
+##FILTER=<ID=map_qual,Description="ref - alt median mapping quality">
+##FILTER=<ID=multiallelic,Description="Site filtered because too many alt alleles pass tumor LOD">
+##FILTER=<ID=n_ratio,Description="Ratio of N to alt exceeds specified ratio">
+##FILTER=<ID=normal_artifact,Description="artifact_in_normal">
+##FILTER=<ID=orientation,Description="orientation bias detected by the orientation bias mixture model">
+##FILTER=<ID=panel_of_normals,Description="Blacklisted site in panel of normals">
+##FILTER=<ID=position,Description="median distance of alt variants from end of reads">
+##FILTER=<ID=possible_numt,Description="Allele depth is below expected coverage of NuMT in autosome">
+##FILTER=<ID=slippage,Description="Site filtered due to contraction of short tandem repeat region">
+##FILTER=<ID=strand_bias,Description="Evidence for alt allele comes from one read direction only">
+##FILTER=<ID=strict_strand,Description="Evidence for alt allele is not represented in both directions">
+##FILTER=<ID=weak_evidence,Description="Mutation does not meet likelihood threshold">
+##FORMAT=<ID=AD,Number=R,Type=Integer,Description="Allelic depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=AF,Number=A,Type=Float,Description="Allele fractions of alternate alleles in the tumor">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Approximate read depth (reads with MQ=255 or with bad mates are filtered)">
+##FORMAT=<ID=F1R2,Number=R,Type=Integer,Description="Count of reads in F1R2 pair orientation supporting each allele">
+##FORMAT=<ID=F2R1,Number=R,Type=Integer,Description="Count of reads in F2R1 pair orientation supporting each allele">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=PGT,Number=1,Type=String,Description="Physical phasing haplotype information, describing how the alternate alleles are phased in relation to one another; will always be heterozygous and is not intended to describe called alleles">
+##FORMAT=<ID=PID,Number=1,Type=String,Description="Physical phasing ID information, where each unique ID within a given sample (but not across samples) connects records within a phasing group">
+##FORMAT=<ID=PL,Number=G,Type=Integer,Description="Normalized, Phred-scaled likelihoods for genotypes as defined in the VCF specification">
+##FORMAT=<ID=PS,Number=1,Type=Integer,Description="Phasing set (typically the position of the first variant in the set)">
+##FORMAT=<ID=SB,Number=4,Type=Integer,Description="Per-sample component statistics which comprise the Fisher's Exact Test to detect strand bias.">
+##GATKCommandLine=<ID=FilterMutectCalls,CommandLine="FilterMutectCalls --output PB0337.oncefiltered.vcf.gz --contamination-table /wistar/herlynm/jianlan/Shih/lung/sortbam/mutect2/contamination/PB0337-P.calculatecontamination.table --variant /wistar/herlynm/jianlan/Shih/lung/sortbam/mutect2/primary_normal/PB0337.primary_normal.vcf.gz --reference /wistar/herlynm/jianlan/hg19ref/Homo_sapiens_assembly19.fasta --threshold-strategy OPTIMAL_F_SCORE --f-score-beta 1.0 --false-discovery-rate 0.05 --initial-threshold 0.1 --mitochondria-mode false --max-events-in-region 2 --max-alt-allele-count 1 --unique-alt-read-count 0 --min-median-mapping-quality 30 --min-median-base-quality 20 --max-median-fragment-length-difference 10000 --min-median-read-position 1 --max-n-ratio Infinity --min-reads-per-strand 0 --min-allele-fraction 0.0 --contamination-estimate 0.0 --log-snv-prior -13.815510557964275 --log-indel-prior -16.11809565095832 --log-artifact-prior -2.302585092994046 --normal-p-value-threshold 0.001 --min-slippage-length 8 --pcr-slippage-rate 0.1 --distance-on-haplotype 100 --long-indel-length 5 --interval-set-rule UNION --interval-padding 0 --interval-exclusion-padding 0 --interval-merging-rule ALL --read-validation-stringency SILENT --seconds-between-progress-updates 10.0 --disable-sequence-dictionary-validation false --create-output-bam-index true --create-output-bam-md5 false --create-output-variant-index true --create-output-variant-md5 false --lenient false --add-output-sam-program-record true --add-output-vcf-command-line true --cloud-prefetch-buffer 40 --cloud-index-prefetch-buffer -1 --disable-bam-index-caching false --sites-only-vcf-output false --help false --version false --showHidden false --verbosity INFO --QUIET false --use-jdk-deflater false --use-jdk-inflater false --gcs-max-retries 20 --gcs-project-for-requester-pays  --disable-tool-default-read-filters false",Version="4.1.9.0",Date="April 10, 2021 7:38:54 PM EDT">
+##GATKCommandLine=<ID=Mutect2,CommandLine="Mutect2 --tumor-sample PB0337-P --normal-sample PB0337-N --panel-of-normals /wistar/herlynm/jianlan/hg19ref/somatic-b37_Mutect2-exome-panel.vcf --germline-resource /wistar/herlynm/jianlan/hg19ref/af-only-gnomad.raw.sites.b37.vcf.gz --af-of-alleles-not-in-resource 2.5E-6 --bam-output PB0337.primary_normal.bam --output PB0337.primary_normal.vcf.gz --intervals /wistar/herlynm/jianlan/hg19ref/targets.interval_list --input /wistar/herlynm/jianlan/Shih/lung/sortbam/markdup/PB0337-P.markdup.bam --input /wistar/herlynm/jianlan/Shih/lung/sortbam/markdup/PB0337-N.markdup.bam --reference /wistar/herlynm/jianlan/hg19ref/Homo_sapiens_assembly19.fasta --disable-read-filter MateOnSameContigOrNoMappedMateReadFilter --f1r2-median-mq 50 --f1r2-min-bq 20 --f1r2-max-depth 200 --genotype-pon-sites false --genotype-germline-sites false --mitochondria-mode false --tumor-lod-to-emit 3.0 --initial-tumor-lod 2.0 --pcr-snv-qual 40 --pcr-indel-qual 40 --max-population-af 0.01 --downsampling-stride 1 --callable-depth 10 --max-suspicious-reads-per-alignment-start 0 --normal-lod 2.2 --ignore-itr-artifacts false --gvcf-lod-band -2.5 --gvcf-lod-band -2.0 --gvcf-lod-band -1.5 --gvcf-lod-band -1.0 --gvcf-lod-band -0.5 --gvcf-lod-band 0.0 --gvcf-lod-band 0.5 --gvcf-lod-band 1.0 --minimum-allele-fraction 0.0 --independent-mates false --disable-adaptive-pruning false --kmer-size 10 --kmer-size 25 --dont-increase-kmer-sizes-for-cycles false --allow-non-unique-kmers-in-ref false --num-pruning-samples 1 --min-dangling-branch-length 4 --recover-all-dangling-branches false --max-num-haplotypes-in-population 128 --min-pruning 2 --adaptive-pruning-initial-error-rate 0.001 --pruning-lod-threshold 2.302585092994046 --pruning-seeding-lod-threshold 9.210340371976184 --max-unpruned-variants 100 --linked-de-bruijn-graph false --disable-artificial-haplotype-recovery false --debug-assembly false --debug-graph-transformations false --capture-assembly-failure-bam false --error-correction-log-odds -Infinity --error-correct-reads false --kmer-length-for-read-error-correction 25 --min-observations-for-kmer-to-be-solid 20 --base-quality-score-threshold 18 --pair-hmm-gap-continuation-penalty 10 --pair-hmm-implementation FASTEST_AVAILABLE --pcr-indel-model CONSERVATIVE --phred-scaled-global-read-mismapping-rate 45 --native-pair-hmm-threads 4 --native-pair-hmm-use-double-precision false --bam-writer-type CALLED_HAPLOTYPES --dont-use-soft-clipped-bases false --min-base-quality-score 10 --smith-waterman JAVA --emit-ref-confidence NONE --max-mnp-distance 1 --force-call-filtered-alleles false --allele-informative-reads-overlap-margin 2 --min-assembly-region-size 50 --max-assembly-region-size 300 --active-probability-threshold 0.002 --max-prob-propagation-distance 50 --force-active false --assembly-region-padding 100 --padding-around-indels 75 --padding-around-snps 20 --padding-around-strs 75 --max-reads-per-alignment-start 50 --interval-set-rule UNION --interval-padding 0 --interval-exclusion-padding 0 --interval-merging-rule ALL --read-validation-stringency SILENT --seconds-between-progress-updates 10.0 --disable-sequence-dictionary-validation false --create-output-bam-index true --create-output-bam-md5 false --create-output-variant-index true --create-output-variant-md5 false --lenient false --add-output-sam-program-record true --add-output-vcf-command-line true --cloud-prefetch-buffer 40 --cloud-index-prefetch-buffer -1 --disable-bam-index-caching false --sites-only-vcf-output false --help false --version false --showHidden false --verbosity INFO --QUIET false --use-jdk-deflater false --use-jdk-inflater false --gcs-max-retries 20 --gcs-project-for-requester-pays  --disable-tool-default-read-filters false --max-read-length 2147483647 --min-read-length 30 --minimum-mapping-quality 20 --disable-tool-default-annotations false --enable-all-annotations false",Version="4.1.9.0",Date="April 9, 2021 1:20:31 AM EDT">
+##INFO=<ID=AS_FilterStatus,Number=A,Type=String,Description="Filter status for each allele, as assessed by ApplyRecalibration. Note that the VCF filter field will reflect the most lenient/sensitive status across all alleles.">
+##INFO=<ID=AS_SB_TABLE,Number=1,Type=String,Description="Allele-specific forward/reverse read counts for strand bias tests. Includes the reference and alleles separated by |.">
+##INFO=<ID=AS_UNIQ_ALT_READ_COUNT,Number=A,Type=Integer,Description="Number of reads with unique start and mate end positions for each alt at a variant site">
+##INFO=<ID=CONTQ,Number=1,Type=Float,Description="Phred-scaled qualities that alt allele are not due to contamination">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Approximate read depth; some reads may have been filtered">
+##INFO=<ID=ECNT,Number=1,Type=Integer,Description="Number of events in this haplotype">
+##INFO=<ID=GERMQ,Number=1,Type=Integer,Description="Phred-scaled quality that alt alleles are not germline variants">
+##INFO=<ID=MBQ,Number=R,Type=Integer,Description="median base quality">
+##INFO=<ID=MFRL,Number=R,Type=Integer,Description="median fragment length">
+##INFO=<ID=MMQ,Number=R,Type=Integer,Description="median mapping quality">
+##INFO=<ID=MPOS,Number=A,Type=Integer,Description="median distance from end of read">
+##INFO=<ID=NALOD,Number=A,Type=Float,Description="Negative log 10 odds of artifact in normal with same allele fraction as tumor">
+##INFO=<ID=NCount,Number=1,Type=Integer,Description="Count of N bases in the pileup">
+##INFO=<ID=NLOD,Number=A,Type=Float,Description="Normal log 10 likelihood ratio of diploid het or hom alt genotypes">
+##INFO=<ID=OCM,Number=1,Type=Integer,Description="Number of alt reads whose original alignment doesn't match the current contig.">
+##INFO=<ID=PON,Number=0,Type=Flag,Description="site found in panel of normals">
+##INFO=<ID=POPAF,Number=A,Type=Float,Description="negative log 10 population allele frequencies of alt alleles">
+##INFO=<ID=ROQ,Number=1,Type=Float,Description="Phred-scaled qualities that alt allele are not due to read orientation artifact">
+##INFO=<ID=RPA,Number=R,Type=Integer,Description="Number of times tandem repeat unit is repeated, for each allele (including reference)">
+##INFO=<ID=RU,Number=1,Type=String,Description="Tandem repeat unit (bases)">
+##INFO=<ID=SEQQ,Number=1,Type=Integer,Description="Phred-scaled quality that alt alleles are not sequencing errors">
+##INFO=<ID=STR,Number=0,Type=Flag,Description="Variant is a short tandem repeat">
+##INFO=<ID=STRANDQ,Number=1,Type=Integer,Description="Phred-scaled quality of strand bias artifact">
+##INFO=<ID=STRQ,Number=1,Type=Integer,Description="Phred-scaled quality that alt alleles in STRs are not polymerase slippage errors">
+##INFO=<ID=TLOD,Number=A,Type=Float,Description="Log 10 likelihood ratio score of variant existing versus not existing">
+##MutectVersion=2.2
+##contig=<ID=1,length=249250621,assembly=GRCh37>
+##contig=<ID=2,length=243199373,assembly=GRCh37>
+##contig=<ID=3,length=198022430,assembly=GRCh37>
+##contig=<ID=4,length=191154276,assembly=GRCh37>
+##contig=<ID=5,length=180915260,assembly=GRCh37>
+##contig=<ID=6,length=171115067,assembly=GRCh37>
+##contig=<ID=7,length=159138663,assembly=GRCh37>
+##contig=<ID=8,length=146364022,assembly=GRCh37>
+##contig=<ID=9,length=141213431,assembly=GRCh37>
+##contig=<ID=10,length=135534747,assembly=GRCh37>
+##contig=<ID=11,length=135006516,assembly=GRCh37>
+##contig=<ID=12,length=133851895,assembly=GRCh37>
+##contig=<ID=13,length=115169878,assembly=GRCh37>
+##contig=<ID=14,length=107349540,assembly=GRCh37>
+##contig=<ID=15,length=102531392,assembly=GRCh37>
+##contig=<ID=16,length=90354753,assembly=GRCh37>
+##contig=<ID=17,length=81195210,assembly=GRCh37>
+##contig=<ID=18,length=78077248,assembly=GRCh37>
+##contig=<ID=19,length=59128983,assembly=GRCh37>
+##contig=<ID=20,length=63025520,assembly=GRCh37>
+##contig=<ID=21,length=48129895,assembly=GRCh37>
+##contig=<ID=22,length=51304566,assembly=GRCh37>
+##contig=<ID=X,length=155270560,assembly=GRCh37>
+##contig=<ID=Y,length=59373566,assembly=GRCh37>
+##contig=<ID=MT,length=16569,assembly=GRCh37>
+##contig=<ID=GL000207.1,length=4262,assembly=GRCh37>
+##contig=<ID=GL000226.1,length=15008,assembly=GRCh37>
+##contig=<ID=GL000229.1,length=19913,assembly=GRCh37>
+##contig=<ID=GL000231.1,length=27386,assembly=GRCh37>
+##contig=<ID=GL000210.1,length=27682,assembly=GRCh37>
+##contig=<ID=GL000239.1,length=33824,assembly=GRCh37>
+##contig=<ID=GL000235.1,length=34474,assembly=GRCh37>
+##contig=<ID=GL000201.1,length=36148,assembly=GRCh37>
+##contig=<ID=GL000247.1,length=36422,assembly=GRCh37>
+##contig=<ID=GL000245.1,length=36651,assembly=GRCh37>
+##contig=<ID=GL000197.1,length=37175,assembly=GRCh37>
+##contig=<ID=GL000203.1,length=37498,assembly=GRCh37>
+##contig=<ID=GL000246.1,length=38154,assembly=GRCh37>
+##contig=<ID=GL000249.1,length=38502,assembly=GRCh37>
+##contig=<ID=GL000196.1,length=38914,assembly=GRCh37>
+##contig=<ID=GL000248.1,length=39786,assembly=GRCh37>
+##contig=<ID=GL000244.1,length=39929,assembly=GRCh37>
+##contig=<ID=GL000238.1,length=39939,assembly=GRCh37>
+##contig=<ID=GL000202.1,length=40103,assembly=GRCh37>
+##contig=<ID=GL000234.1,length=40531,assembly=GRCh37>
+##contig=<ID=GL000232.1,length=40652,assembly=GRCh37>
+##contig=<ID=GL000206.1,length=41001,assembly=GRCh37>
+##contig=<ID=GL000240.1,length=41933,assembly=GRCh37>
+##contig=<ID=GL000236.1,length=41934,assembly=GRCh37>
+##contig=<ID=GL000241.1,length=42152,assembly=GRCh37>
+##contig=<ID=GL000243.1,length=43341,assembly=GRCh37>
+##contig=<ID=GL000242.1,length=43523,assembly=GRCh37>
+##contig=<ID=GL000230.1,length=43691,assembly=GRCh37>
+##contig=<ID=GL000237.1,length=45867,assembly=GRCh37>
+##contig=<ID=GL000233.1,length=45941,assembly=GRCh37>
+##contig=<ID=GL000204.1,length=81310,assembly=GRCh37>
+##contig=<ID=GL000198.1,length=90085,assembly=GRCh37>
+##contig=<ID=GL000208.1,length=92689,assembly=GRCh37>
+##contig=<ID=GL000191.1,length=106433,assembly=GRCh37>
+##contig=<ID=GL000227.1,length=128374,assembly=GRCh37>
+##contig=<ID=GL000228.1,length=129120,assembly=GRCh37>
+##contig=<ID=GL000214.1,length=137718,assembly=GRCh37>
+##contig=<ID=GL000221.1,length=155397,assembly=GRCh37>
+##contig=<ID=GL000209.1,length=159169,assembly=GRCh37>
+##contig=<ID=GL000218.1,length=161147,assembly=GRCh37>
+##contig=<ID=GL000220.1,length=161802,assembly=GRCh37>
+##contig=<ID=GL000213.1,length=164239,assembly=GRCh37>
+##contig=<ID=GL000211.1,length=166566,assembly=GRCh37>
+##contig=<ID=GL000199.1,length=169874,assembly=GRCh37>
+##contig=<ID=GL000217.1,length=172149,assembly=GRCh37>
+##contig=<ID=GL000216.1,length=172294,assembly=GRCh37>
+##contig=<ID=GL000215.1,length=172545,assembly=GRCh37>
+##contig=<ID=GL000205.1,length=174588,assembly=GRCh37>
+##contig=<ID=GL000219.1,length=179198,assembly=GRCh37>
+##contig=<ID=GL000224.1,length=179693,assembly=GRCh37>
+##contig=<ID=GL000223.1,length=180455,assembly=GRCh37>
+##contig=<ID=GL000195.1,length=182896,assembly=GRCh37>
+##contig=<ID=GL000212.1,length=186858,assembly=GRCh37>
+##contig=<ID=GL000222.1,length=186861,assembly=GRCh37>
+##contig=<ID=GL000200.1,length=187035,assembly=GRCh37>
+##contig=<ID=GL000193.1,length=189789,assembly=GRCh37>
+##contig=<ID=GL000194.1,length=191469,assembly=GRCh37>
+##contig=<ID=GL000225.1,length=211173,assembly=GRCh37>
+##contig=<ID=GL000192.1,length=547496,assembly=GRCh37>
+##contig=<ID=NC_007605,length=171823,assembly=NC_007605.1>
+##filtering_status=These calls have been filtered by FilterMutectCalls to label false positives with a list of failed filters and true positives with PASS.
+##normal_sample=PB0337-N
+##source=FilterMutectCalls
+##source=Mutect2
+##tumor_sample=PB0337-P
+##bcftools_viewVersion=1.11-88-g71d744f+htslib-1.11-111-g1949a15
+##bcftools_viewCommand=view -f PASS ./PB0337.oncefiltered.vcf.gz; Date=Mon Apr 12 18:31:22 2021
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	PB0337-N	PB0337-P
+1	46976751	.	G	A	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=124,112|25,22;DP=299;ECNT=1;GERMQ=93;MBQ=24,34;MFRL=122,118;MMQ=60,60;MPOS=18;NALOD=1.8;NLOD=18.06;POPAF=5.6;TLOD=121.47	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:78,0:0.016:78:46,0:30,0:40,38,0,0	0/1:158,47:0.239:205:79,25:79,21:84,74,25,22
+1	99771691	.	C	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=114,55|14,5;DP=202;ECNT=1;GERMQ=93;MBQ=39,40;MFRL=181,171;MMQ=60,60;MPOS=15;NALOD=2.06;NLOD=33.06;POPAF=5.6;TLOD=61.81	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:110,0:0.008683:110:53,0:56,0:71,39,0,0	0/1:59,19:0.248:78:25,10:32,9:43,16,14,5
+1	144873993	.	G	C	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=333,547|10,30;DP=954;ECNT=1;GERMQ=93;MBQ=38,35;MFRL=138,133;MMQ=60,60;MPOS=18;NALOD=2.59;NLOD=110.38;POPAF=5.6;TLOD=86.03	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:428,1:0.002591:429:189,0:233,1:179,249,1,0	0/1:452,39:0.077:491:169,17:278,21:154,298,9,30
+1	152276597	.	C	A	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=190,270|10,16;DP=500;ECNT=1;GERMQ=93;MBQ=38,40;MFRL=142,177;MMQ=46,49;MPOS=20;NALOD=2.1;NLOD=36.92;POPAF=5.6;TLOD=60.36	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:136,0:0.007876:136:70,0:63,0:48,88,0,0	0/1:324,26:0.082:350:166,13:154,11:142,182,10,16
+1	154901543	.	A	C	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=92,130|11,9;DP=256;ECNT=1;GERMQ=93;MBQ=37,33;MFRL=130,135;MMQ=60,60;MPOS=18;NALOD=1.78;NLOD=17.46;POPAF=5.6;TLOD=45.93	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:66,0:0.016:66:34,0:32,0:27,39,0,0	0/1:156,20:0.12:176:68,7:86,13:65,91,11,9
+1	160720205	.	G	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=98,197|11,9;DP=330;ECNT=1;GERMQ=93;MBQ=38,37;MFRL=145,106;MMQ=60,60;MPOS=16;NALOD=2.08;NLOD=35.21;POPAF=5.6;TLOD=43.19	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:129,0:0.008205:129:61,0:65,0:48,81,0,0	0/1:166,20:0.099:186:75,11:91,8:50,116,11,9
+1	161089014	.	C	CT	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=128,103|14,10;DP=284;ECNT=1;GERMQ=93;MBQ=36,38;MFRL=136,133;MMQ=60,60;MPOS=21;NALOD=1.85;NLOD=19.24;POPAF=5.6;RPA=3,4;RU=T;STR;STRQ=93;TLOD=40.72	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:74,0:0.014:74:37,0:37,0:43,31,0,0	0/1:157,24:0.139:181:87,13:70,11:85,72,14,10
+1	177906419	.	G	A	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=46,92|18,42;DP=208;ECNT=1;GERMQ=93;MBQ=37,37;MFRL=134,151;MMQ=60,60;MPOS=23;NALOD=1.48;NLOD=8.68;POPAF=5.6;TLOD=185.85	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:29,0:0.032:29:11,0:17,0:10,19,0,0	0/1:109,60:0.389:169:57,28:50,30:36,73,18,42
+2	141458172	.	C	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=239,293|8,9;DP=570;ECNT=1;GERMQ=93;MBQ=37,38;MFRL=131,111;MMQ=60,60;MPOS=21;NALOD=2.59;NLOD=113.07;POPAF=5.6;TLOD=41.89	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:459,0:0.002626:459:208,0:247,0:209,250,0,0	0/1:73,17:0.202:90:32,14:41,3:30,43,8,9
+2	163133355	.	C	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=147,229|4,18;DP=419;ECNT=1;GERMQ=93;MBQ=37,39;MFRL=135,121;MMQ=60,60;MPOS=23;NALOD=2.43;NLOD=79.45;POPAF=5.6;TLOD=63.08	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:312,0:0.003725:312:155,0:155,0:127,185,0,0	0/1:64,22:0.269:86:36,12:27,10:20,44,4,18
+2	210560191	.	G	A	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=70,84|7,6;DP=176;ECNT=1;GERMQ=93;MBQ=39,40;MFRL=156,142;MMQ=60,60;MPOS=17;NALOD=1.96;NLOD=26.74;POPAF=5.6;TLOD=39.86	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:97,0:0.011:97:36,0:60,0:44,53,0,0	0/1:57,13:0.2:70:19,2:37,11:26,31,7,6
+2	220412259	.	C	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=282,351|49,62;DP=771;ECNT=1;GERMQ=93;MBQ=36,35;MFRL=131,130;MMQ=60,60;MPOS=18;NALOD=2.35;NLOD=65.22;POPAF=5.6;TLOD=300.42	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:257,0:0.004492:257:129,0:125,0:103,154,0,0	0/1:376,111:0.229:487:195,51:178,59:179,197,49,62
+2	231307761	.	C	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=111,139|8,6;DP=277;ECNT=1;GERMQ=93;MBQ=38,40;MFRL=145,144;MMQ=60,49;MPOS=23;NALOD=2.31;NLOD=57.19;POPAF=5.6;TLOD=40.54	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:217,0:0.005032:217:94,0:123,0:94,123,0,0	0/1:33,14:0.31:47:16,4:16,9:17,16,8,6
+3	30713579	.	G	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=76,58|19,16;DP=177;ECNT=1;GERMQ=93;MBQ=39,39;MFRL=166,144;MMQ=60,60;MPOS=15;NALOD=1.97;NLOD=27.09;POPAF=5.6;TLOD=112.83	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:97,0:0.011:97:48,0:49,0:51,46,0,0	0/1:37,35:0.478:72:13,11:24,24:25,12,19,16
+3	113655263	.	G	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=60,108|2,16;DP=195;ECNT=1;GERMQ=93;MBQ=35,40;MFRL=129,146;MMQ=60,60;MPOS=25;NALOD=2.07;NLOD=34.92;POPAF=5.6;TLOD=62.7	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:144,0:0.008391:144:63,0:80,0:52,92,0,0	0/1:24,18:0.464:42:7,8:16,10:8,16,2,16
+3	143708529	.	G	A	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=158,153|10,8;DP=342;ECNT=1;GERMQ=93;MBQ=37,35;MFRL=139,140;MMQ=60,60;MPOS=10;NALOD=-0.352;NLOD=49.8;POPAF=5.6;TLOD=38.82	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:203,2:0.011:205:114,0:87,2:102,101,1,1	0/1:108,16:0.135:124:50,11:58,5:56,52,9,7
+3	178936082	.	G	A	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=91,71|7,9;DP=183;ECNT=1;GERMQ=93;MBQ=37,38;MFRL=136,104;MMQ=60,60;MPOS=25;NALOD=2.12;NLOD=38.77;POPAF=5.6;TLOD=48.58	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:150,0:0.007591:150:78,0:71,0:85,65,0,0	0/1:12,16:0.56:28:6,7:6,8:6,6,7,9
+3	196664499	.	G	A	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=100,108|15,43;DP=280;ECNT=1;GERMQ=93;MBQ=34,35;MFRL=135,134;MMQ=60,60;MPOS=17;NALOD=2.08;NLOD=34.61;POPAF=4.61;TLOD=175.25	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:139,0:0.008293:139:64,0:75,0:71,68,0,0	0/1:69,58:0.482:127:30,31:38,26:29,40,15,43
+4	2242382	.	C	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=101,59|4,2;DP=173;ECNT=1;GERMQ=93;MBQ=39,32;MFRL=158,149;MMQ=60,60;MPOS=16;NALOD=2.06;NLOD=34.01;POPAF=5.6;TLOD=13.89	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:124,0:0.008569:124:57,0:67,0:74,50,0,0	0/1:36,6:0.149:42:17,2:19,4:27,9,4,2
+4	110890146	.	C	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=97,61|7,4;DP=175;ECNT=1;GERMQ=93;MBQ=34,38;MFRL=128,186;MMQ=60,60;MPOS=21;NALOD=2.02;NLOD=30.7;POPAF=5.6;TLOD=29.11	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:122,0:0.00954:122:69,0:53,0:74,48,0,0	0/1:36,11:0.289:47:12,6:24,5:23,13,7,4
+4	141832373	.	T	A	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=85,159|12,16;DP=285;ECNT=1;GERMQ=93;MBQ=36,35;MFRL=148,128;MMQ=60,60;MPOS=20;NALOD=2.15;NLOD=41.31;POPAF=5.6;TLOD=75.86	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:153,0:0.007119:153:66,0:81,0:51,102,0,0	0/1:91,28:0.231:119:45,12:45,15:34,57,12,16
+5	41805761	.	C	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=88,233|3,16;DP=352;ECNT=1;GERMQ=93;MBQ=36,31;MFRL=132,127;MMQ=60,60;MPOS=19;NALOD=2.26;NLOD=53.09;POPAF=5.6;TLOD=40.59	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:218,0:0.005516:218:102,0:112,0:67,151,0,0	0/1:103,19:0.157:122:46,12:53,7:21,82,3,16
+6	27835217	.	C	G	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=66,96|16,25;DP=209;ECNT=1;GERMQ=93;MBQ=36,35;MFRL=158,183;MMQ=60,60;MPOS=14;NALOD=1.76;NLOD=16.67;POPAF=5.6;TLOD=119.67	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:59,0:0.017:59:33,0:22,0:16,43,0,0	0/1:103,41:0.285:144:60,18:41,22:50,53,16,25
+6	43316090	.	G	C	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=149,121|15,10;DP=310;ECNT=1;GERMQ=93;MBQ=37,38;MFRL=135,131;MMQ=60,60;MPOS=22;NALOD=2.23;NLOD=49.47;POPAF=5.6;TLOD=62.05	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:193,0:0.005922:193:87,0:101,0:103,90,0,0	0/1:77,25:0.255:102:36,9:39,15:46,31,15,10
+6	70639575	.	G	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=104,199|4,5;DP=329;ECNT=1;GERMQ=93;MBQ=35,34;MFRL=130,120;MMQ=60,60;MPOS=27;NALOD=2.28;NLOD=55.23;POPAF=5.6;TLOD=17.98	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:218,0:0.005276:218:96,0:116,0:74,144,0,0	0/1:85,9:0.102:94:30,4:55,5:30,55,4,5
+7	19184919	.	C	A	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=70,68|11,22;DP=182;ECNT=1;GERMQ=93;MBQ=34,39;MFRL=130,123;MMQ=60,60;MPOS=21;NALOD=1.64;NLOD=12.64;POPAF=5.6;TLOD=95.87	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:48,0:0.022:48:22,0:26,0:27,21,0,0	0/1:90,33:0.294:123:39,14:50,18:43,47,11,22
+7	43477616	.	G	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=115,126|6,9;DP=269;ECNT=1;GERMQ=93;MBQ=37,40;MFRL=141,135;MMQ=60,60;MPOS=20;NALOD=2.19;NLOD=45.01;POPAF=5.6;TLOD=38.92	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:173,0:0.006447:173:74,0:95,0:82,91,0,0	0/1:68,15:0.186:83:37,9:31,6:33,35,6,9
+7	139097327	.	G	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=82,80|3,5;DP=175;ECNT=1;GERMQ=93;MBQ=33,30;MFRL=125,98;MMQ=60,49;MPOS=17;NALOD=2.06;NLOD=33.62;POPAF=5.6;TLOD=16.46	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:137,0:0.008695:137:69,0:66,0:70,67,0,0	0/1:25,8:0.241:33:14,4:11,3:12,13,3,5
+7	141422934	.	GT	G	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=122,65|8,3;DP=208;ECNT=1;GERMQ=93;MBQ=39,37;MFRL=151,115;MMQ=60,60;MPOS=25;NALOD=2.16;NLOD=40.6;POPAF=5.6;TLOD=25.59	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:150,0:0.007066:150:74,0:73,0:104,46,0,0	0/1:37,11:0.232:48:17,0:19,11:18,19,8,3
+7	144702977	.	CC	AA	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=167,127|17,4;DP=331;ECNT=1;GERMQ=93;MBQ=37,40;MFRL=145,148;MMQ=60,60;MPOS=21;NALOD=2.24;NLOD=51.17;POPAF=5.6;TLOD=69.37	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:194,0:0.005716:194:101,0:88,0:107,87,0,0	0/1:100,21:0.189:121:61,9:38,11:60,40,17,4
+7	146997345	.	C	A	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=58,114|2,5;DP=183;ECNT=1;GERMQ=93;MBQ=38,33;MFRL=149,131;MMQ=60,60;MPOS=31;NALOD=2.1;NLOD=37.02;POPAF=5.6;TLOD=17	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:144,0:0.007948:144:62,0:81,0:48,96,0,0	0/1:28,7:0.206:35:11,4:17,3:10,18,2,5
+8	53044584	.	GG	TT	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=89,100|10,15;DP=227;ECNT=1;GERMQ=93;MBQ=36,33;MFRL=127,119;MMQ=60,60;MPOS=21;NALOD=1.92;NLOD=23.78;POPAF=5.6;TLOD=89.92	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:99,0:0.012:99:41,0:54,0:49,50,0,0	0/1:90,25:0.206:115:39,9:49,16:40,50,10,15
+8	92307867	.	C	A	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=94,145|10,29;DP=288;ECNT=1;GERMQ=93;MBQ=38,37;MFRL=143,160;MMQ=60,60;MPOS=16;NALOD=2.15;NLOD=40.84;POPAF=5.6;TLOD=121.32	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:153,0:0.007104:153:72,0:78,0:66,87,0,0	0/1:86,39:0.323:125:42,21:43,18:28,58,10,29
+9	34646733	.	G	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=70,89|7,9;DP=182;ECNT=1;GERMQ=93;MBQ=33,35;MFRL=123,134;MMQ=60,60;MPOS=18;NALOD=1.64;NLOD=12.94;POPAF=5.6;TLOD=37.95	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:56,0:0.022:56:25,0:31,0:21,35,0,0	0/1:103,16:0.145:119:51,9:48,7:49,54,7,9
+9	125673996	.	C	A	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=74,92|5,6;DP=188;ECNT=1;GERMQ=93;MBQ=37,39;MFRL=145,125;MMQ=60,60;MPOS=25;NALOD=2.11;NLOD=37.58;POPAF=5.6;TLOD=32.09	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:140,0:0.007702:140:58,0:81,0:59,81,0,0	0/1:26,11:0.307:37:13,7:12,4:15,11,5,6
+10	24874756	.	C	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=171,166|11,15;DP=376;ECNT=1;GERMQ=93;MBQ=37,40;MFRL=139,128;MMQ=46,46;MPOS=18;NALOD=2.33;NLOD=63.13;POPAF=5.6;TLOD=67.88	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:248,0:0.004645:248:113,0:131,0:136,112,0,0	0/1:89,26:0.231:115:47,13:42,12:35,54,11,15
+10	50723560	.	C	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=93,114|5,9;DP=236;ECNT=1;GERMQ=93;MBQ=37,38;MFRL=142,139;MMQ=60,60;MPOS=20;NALOD=2.16;NLOD=40.89;POPAF=5.6;TLOD=39.09	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:154,0:0.00703:154:60,0:92,0:66,88,0,0	0/1:53,14:0.228:67:29,7:24,7:27,26,5,9
+10	105657340	.	T	C	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=84,60|20,16;DP=193;ECNT=1;GERMQ=93;MBQ=37,34;MFRL=142,118;MMQ=60,60;MPOS=16;NALOD=1.88;NLOD=21.02;POPAF=4.61;TLOD=97.91	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:82,0:0.013:82:40,0:41,0:49,33,0,0	0/1:62,36:0.35:98:27,16:34,20:35,27,20,16
+11	1586951	.	C	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=193,92|39,20;DP=357;ECNT=1;GERMQ=93;MBQ=34,34;MFRL=129,122;MMQ=60,60;MPOS=18;NALOD=1.69;NLOD=14.15;POPAF=4.61;TLOD=151.4	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:56,0:0.02:56:29,0:25,0:39,17,0,0	0/1:229,59:0.209:288:107,25:116,32:154,75,39,20
+11	10820606	.	T	G	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=68,159|3,8;DP=251;ECNT=1;GERMQ=93;MBQ=37,37;MFRL=140,112;MMQ=60,60;MPOS=20;NALOD=2.18;NLOD=44.5;POPAF=5.6;TLOD=22.94	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:169,0:0.006525:169:92,0:76,0:41,128,0,0	0/1:58,11:0.152:69:18,8:40,1:27,31,3,8
+11	73872490	.	A	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=145,17|4,0;DP=173;ECNT=1;GERMQ=93;MBQ=39,40;MFRL=158,162;MMQ=60,39;MPOS=20;NALOD=2.09;NLOD=35.73;POPAF=5.6;TLOD=8.38	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:129,0:0.008159:129:56,0:71,0:113,16,0,0	0/1:33,4:0.127:37:22,0:11,4:32,1,4,0
+11	88780474	.	C	A	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=69,149|4,13;DP=252;ECNT=1;GERMQ=93;MBQ=39,37;MFRL=146,156;MMQ=60,60;MPOS=15;NALOD=2.2;NLOD=46.05;POPAF=5.6;TLOD=51.41	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:166,0:0.006316:166:79,0:87,0:52,114,0,0	0/1:52,17:0.268:69:24,12:28,5:17,35,4,13
+11	118343837	.	C	G	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=152,98|15,7;DP=280;ECNT=1;GERMQ=93;MBQ=35,39;MFRL=132,136;MMQ=60,60;MPOS=24;NALOD=2.08;NLOD=35.47;POPAF=5.6;TLOD=61.23	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:143,0:0.008257:143:81,0:61,0:84,59,0,0	0/1:107,22:0.194:129:59,7:48,15:68,39,15,7
+12	30848504	.	G	A	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=67,37|33,25;DP=169;ECNT=1;GERMQ=93;MBQ=35,31;MFRL=135,122;MMQ=60,60;MPOS=19;NALOD=1.66;NLOD=13.19;POPAF=5.6;TLOD=160.7	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:51,0:0.021:51:21,0:27,0:35,16,0,0	0/1:53,58:0.491:111:25,21:27,35:32,21,33,25
+13	67800617	.	T	A	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=79,76|8,5;DP=179;ECNT=1;GERMQ=93;MBQ=36,36;MFRL=151,156;MMQ=60,60;MPOS=25;NALOD=2.05;NLOD=32.16;POPAF=5.6;TLOD=38	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:121,0:0.008891:121:55,0:65,0:63,58,0,0	0/1:34,13:0.325:47:17,4:17,9:16,18,8,5
+13	77663100	.	G	C	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=69,152|3,3;DP=239;ECNT=1;GERMQ=93;MBQ=37,20;MFRL=137,110;MMQ=60,60;MPOS=15;NALOD=2.2;NLOD=46.95;POPAF=4.31;TLOD=12.76	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:192,0:0.006229:192:88,0:103,0:59,133,0,0	0/1:29,6:0.161:35:11,0:18,6:10,19,3,3
+13	78138007	.	G	A	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=138,130|9,6;DP=291;ECNT=1;GERMQ=93;MBQ=32,41;MFRL=127,131;MMQ=60,60;MPOS=17;NALOD=2.28;NLOD=55.58;POPAF=4.61;TLOD=42.05	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:235,0:0.005308:235:116,0:116,0:123,112,0,0	0/1:33,15:0.325:48:15,6:18,9:15,18,9,6
+13	99907485	.	G	A	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=103,120|11,6;DP=255;ECNT=1;GERMQ=93;MBQ=37,40;MFRL=146,173;MMQ=60,60;MPOS=22;NALOD=2.2;NLOD=45.75;POPAF=5.6;TLOD=50.52	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:181,0:0.006327:181:71,0:110,0:86,95,0,0	0/1:42,17:0.319:59:14,5:27,11:17,25,11,6
+14	20248565	.	T	G	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=322,164|11,5;DP=534;ECNT=1;GERMQ=93;MBQ=39,37;MFRL=151,129;MMQ=60,60;MPOS=20;NALOD=2.58;NLOD=112.26;POPAF=5.6;TLOD=37.6	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:403,0:0.002615:403:204,0:199,0:271,132,0,0	0/1:83,16:0.164:99:41,4:42,12:51,32,11,5
+15	64791706	.	G	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=91,80|11,12;DP=208;ECNT=1;GERMQ=93;MBQ=39,39;MFRL=147,142;MMQ=60,60;MPOS=20;NALOD=2;NLOD=28.89;POPAF=5.6;TLOD=66.73	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:109,0:0.009992:109:49,0:59,0:67,42,0,0	0/1:62,23:0.266:85:27,15:34,8:24,38,11,12
+15	70959991	.	T	A	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=86,67|5,2;DP=169;ECNT=1;GERMQ=93;MBQ=39,39;MFRL=159,164;MMQ=60,60;MPOS=17;NALOD=2.07;NLOD=34.01;POPAF=5.6;TLOD=20.03	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:121,0:0.008511:121:61,0:59,0:64,57,0,0	0/1:32,7:0.205:39:16,3:16,4:22,10,5,2
+15	72069606	.	G	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=82,88|11,8;DP=194;ECNT=1;GERMQ=93;MBQ=36,36;MFRL=134,123;MMQ=60,60;MPOS=21;NALOD=1.87;NLOD=21.88;POPAF=3.83;TLOD=49.14	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:92,0:0.013:92:45,0:45,0:45,47,0,0	0/1:78,19:0.188:97:32,10:46,8:37,41,11,8
+16	71610249	.	C	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=91,78|7,7;DP=196;ECNT=1;GERMQ=93;MBQ=37,38;MFRL=130,163;MMQ=60,60;MPOS=16;NALOD=1.97;NLOD=27.39;POPAF=5.6;TLOD=40.93	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:104,0:0.011:104:51,0:53,0:60,44,0,0	0/1:65,14:0.224:79:31,6:34,8:31,34,7,7
+17	9843495	.	C	G	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=68,114|10,10;DP=211;ECNT=1;GERMQ=93;MBQ=38,37;MFRL=130,111;MMQ=60,60;MPOS=23;NALOD=1.86;NLOD=21.07;POPAF=5.6;TLOD=49.73	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:90,0:0.014:90:50,0:39,0:36,54,0,0	0/1:92,20:0.171:112:40,11:52,9:32,60,10,10
+17	10304027	.	G	A	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=76,198|13,26;DP=343;ECNT=1;GERMQ=93;MBQ=35,35;MFRL=148,149;MMQ=60,60;MPOS=16;NALOD=2.15;NLOD=38.85;POPAF=5.6;TLOD=106.4	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:144,0:0.007338:144:68,0:69,0:36,108,0,0	0/1:130,39:0.225:169:73,23:54,15:40,90,13,26
+17	10404039	.	C	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=120,113|15,8;DP=267;ECNT=1;GERMQ=93;MBQ=37,32;MFRL=136,134;MMQ=60,60;MPOS=18;NALOD=2.17;NLOD=43.04;POPAF=5.6;TLOD=58.35	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:168,0:0.00676:168:84,0:83,0:92,76,0,0	0/1:65,23:0.247:88:32,10:33,13:28,37,15,8
+17	41234440	.	T	A	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=143,110|6,10;DP=286;ECNT=1;GERMQ=93;MBQ=38,39;MFRL=133,128;MMQ=60,60;MPOS=22;NALOD=2.23;NLOD=48.76;POPAF=5.6;TLOD=43.93	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:191,0:0.005925:191:100,0:90,0:109,82,0,0	0/1:62,16:0.206:78:35,9:26,7:34,28,6,10
+18	33606962	.	C	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=115,79|2,3;DP=209;ECNT=1;GERMQ=93;MBQ=39,40;MFRL=147,134;MMQ=60,60;MPOS=14;NALOD=2.22;NLOD=47.85;POPAF=5.6;TLOD=9.75	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:164,1:0.006072:165:80,0:83,0:95,69,0,1	0/1:30,4:0.151:34:19,4:11,0:20,10,2,2
+18	54424396	.	C	G	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=62,204|8,20;DP=303;ECNT=1;GERMQ=93;MBQ=39,37;MFRL=167,157;MMQ=60,60;MPOS=12;NALOD=2.27;NLOD=54.73;POPAF=5.6;TLOD=84.51	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:194,0:0.005384:194:101,0:91,0:47,147,0,0	0/1:72,28:0.293:100:37,15:35,13:15,57,8,20
+18	70451029	.	C	A	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=195,253|15,23;DP=507;ECNT=1;GERMQ=93;MBQ=38,40;MFRL=138,155;MMQ=60,60;MPOS=21;NALOD=2.48;NLOD=87.24;POPAF=5.6;TLOD=125.37	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:319,0:0.003394:319:145,0:173,0:149,170,0,0	0/1:129,38:0.245:167:65,21:64,17:46,83,15,23
+19	11559744	.	C	G	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=100,44|21,6;DP=180;ECNT=1;GERMQ=93;MBQ=38,33;MFRL=133,134;MMQ=60,60;MPOS=18;NALOD=1.62;NLOD=12.04;POPAF=5.6;TLOD=63.49	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:43,0:0.023:43:26,0:17,0:30,13,0,0	0/1:101,27:0.209:128:53,13:48,13:70,31,21,6
+19	39955661	.	G	A	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=96,69|12,12;DP=200;ECNT=1;GERMQ=93;MBQ=35,35;MFRL=126,112;MMQ=60,60;MPOS=16;NALOD=1.67;NLOD=13.24;POPAF=5.6;TLOD=60.87	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:51,0:0.021:51:28,0:23,0:29,22,0,0	0/1:114,24:0.188:138:46,13:67,11:67,47,12,12
+22	43831016	.	C	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=68,129|10,26;DP=246;ECNT=1;GERMQ=93;MBQ=36,36;MFRL=122,146;MMQ=60,60;MPOS=15;NALOD=1.77;NLOD=17.11;POPAF=5.6;TLOD=99.42	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:68,0:0.017:68:25,0:41,0:24,44,0,0	0/1:129,36:0.245:165:54,21:71,14:44,85,10,26
+X	10085400	.	C	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=95,97|21,24;DP=249;ECNT=1;GERMQ=93;MBQ=35,35;MFRL=135,150;MMQ=60,60;MPOS=23;NALOD=1.72;NLOD=15.35;POPAF=4.31;TLOD=119.79	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:55,0:0.019:55:31,0:24,0:19,36,0,0	0/1:137,45:0.251:182:65,26:71,18:76,61,21,24
+X	86069768	.	CG	C	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=98,88|6,1;DP=215;ECNT=1;GERMQ=93;MBQ=37,37;MFRL=143,150;MMQ=60,60;MPOS=8;NALOD=2.15;NLOD=36.91;POPAF=5.6;TLOD=17.92	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:140,0:0.007488:140:55,0:71,0:70,70,0,0	0/1:46,7:0.15:53:22,3:21,4:28,18,6,1
+X	103420467	.	G	A	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=118,121|7,5;DP=270;ECNT=1;GERMQ=93;MBQ=37,40;MFRL=133,149;MMQ=60,60;MPOS=21;NALOD=2.22;NLOD=48.41;POPAF=5.6;TLOD=35.19	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:189,0:0.006001:189:97,0:89,0:94,95,0,0	0/1:50,12:0.226:62:17,5:32,7:24,26,7,5
+X	134166687	.	A	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=65,87|11,7;DP=184;ECNT=1;GERMQ=93;MBQ=36,37;MFRL=138,126;MMQ=60,60;MPOS=17;NALOD=1.63;NLOD=12.34;POPAF=5.6;TLOD=45.66	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:48,0:0.023:48:23,0:25,0:19,29,0,0	0/1:104,18:0.147:122:38,7:66,11:46,58,11,7
+X	150891169	.	C	A	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=50,96|28,52;DP=238;ECNT=1;GERMQ=93;MBQ=37,37;MFRL=147,149;MMQ=60,60;MPOS=16;NALOD=1.64;NLOD=12.33;POPAF=5.6;TLOD=259.89	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:42,0:0.022:42:20,0:21,0:12,30,0,0	0/1:104,80:0.435:184:48,29:56,50:38,66,28,52
+X	151366118	.	G	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=94,76|5,3;DP=184;ECNT=1;GERMQ=93;MBQ=38,35;MFRL=131,117;MMQ=60,60;MPOS=10;NALOD=1.97;NLOD=27.69;POPAF=5.6;TLOD=18.75	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:110,0:0.011:110:59,0:51,0:62,48,0,0	0/1:60,8:0.129:68:33,5:27,3:32,28,5,3
+X	151821325	.	A	T	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=97,149|9,24;DP=303;ECNT=1;GERMQ=93;MBQ=35,37;MFRL=151,157;MMQ=60,60;MPOS=18;NALOD=1.92;NLOD=24.33;POPAF=5.6;TLOD=93.43	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:88,0:0.012:88:33,0:52,0:36,52,0,0	0/1:158,33:0.186:191:79,20:78,13:61,97,9,24
+X	154124436	.	G	C	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=223,182|36,32;DP=510;ECNT=1;GERMQ=93;MBQ=37,40;MFRL=132,138;MMQ=60,60;MPOS=19;NALOD=2.42;NLOD=74.94;POPAF=5.6;TLOD=216.8	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:290,0:0.003876:290:109,0:179,0:155,135,0,0	0/1:115,68:0.392:183:64,38:51,30:68,47,36,32
